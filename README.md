@@ -4,22 +4,22 @@ Based on the official WordPress docker image. Adds several WordPress versions.
 
 ### Tags
 
-- `4.7-php-5.6-fpm-alpine`
-- `4.7-php-7.0-fpm-alpine`
-- `4.7-php-7.1-fpm-alpine`
-- `4.7-php-7.2-fpm-alpine`
-- `4.8-php-5.6-fpm-alpine`
-- `4.8-php-7.0-fpm-alpine`
-- `4.8-php-7.1-fpm-alpine`
-- `4.8-php-7.2-fpm-alpine`
-- `4.9-php-5.6-fpm-alpine`
-- `4.9-php-7.0-fpm-alpine`
-- `4.9-php-7.1-fpm-alpine`
-- `4.9-php-7.2-fpm-alpine`
-- `5.0-php-5.6-fpm-alpine`
-- `5.0-php-7.0-fpm-alpine`
-- `5.0-php-7.1-fpm-alpine`
-- `5.0-php-7.2-fpm-alpine`
+- `4.7-php5.6-fpm-alpine`
+- `4.7-php7.0-fpm-alpine`
+- `4.7-php7.1-fpm-alpine`
+- `4.7-php7.2-fpm-alpine`
+- `4.8-php5.6-fpm-alpine`
+- `4.8-php7.0-fpm-alpine`
+- `4.8-php7.1-fpm-alpine`
+- `4.8-php7.2-fpm-alpine`
+- `4.9-php5.6-fpm-alpine`
+- `4.9-php7.0-fpm-alpine`
+- `4.9-php7.1-fpm-alpine`
+- `4.9-php7.2-fpm-alpine`
+- `5.0-php5.6-fpm-alpine`
+- `5.0-php7.0-fpm-alpine`
+- `5.0-php7.1-fpm-alpine`
+- `5.0-php7.2-fpm-alpine`
 
 ## Usage
 
@@ -29,7 +29,7 @@ WordPress requires a MySQL database to save data.
 
 Additionally, you may need to run this in tandem with a frontend (eg. `nginx`) that listens to this container on port `9000`.
 
-Minimal example using [docker-compose](https://docs.docker.com/compose/)
+**Minimal example using [docker-compose](https://docs.docker.com/compose/)**:
 
 ```yaml
 # docker-compose.yml
@@ -57,7 +57,7 @@ services:
     restart: always
     volumes:
       - app:/var/www/html:ro
-      - ./wordpress.template:/etc/nginx/conf.d/wordpress.template:ro
+      - ./wordpress.conf:/etc/nginx/conf.d/wordpress.conf:ro
     networks:
       - front
   wordpress:
@@ -83,7 +83,7 @@ volumes:
   db: {}
 ```
 
-You should have a `wordpress.template` file in the same directory as the `docker-compose.yml`, with `fastcgi_pass wordpress:9000;` in its PHP location block(s).
+You should have a `wordpress.conf` file in the same directory as the `docker-compose.yml`, with `fastcgi_pass wordpress:9000;` in its PHP location block(s).
 
 Run `docker-compose up -d` to start the services.
 
