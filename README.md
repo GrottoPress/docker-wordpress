@@ -4,22 +4,22 @@ Based on the official WordPress docker image. Adds several WordPress versions.
 
 ### Tags
 
-- `4.7-php-5.6-fpm-alpine`
-- `4.7-php-7.0-fpm-alpine`
-- `4.7-php-7.1-fpm-alpine`
-- `4.7-php-7.2-fpm-alpine`
-- `4.8-php-5.6-fpm-alpine`
-- `4.8-php-7.0-fpm-alpine`
-- `4.8-php-7.1-fpm-alpine`
-- `4.8-php-7.2-fpm-alpine`
-- `4.9-php-5.6-fpm-alpine`
-- `4.9-php-7.0-fpm-alpine`
-- `4.9-php-7.1-fpm-alpine`
-- `4.9-php-7.2-fpm-alpine`
-- `5.0-php-5.6-fpm-alpine`
-- `5.0-php-7.0-fpm-alpine`
-- `5.0-php-7.1-fpm-alpine`
-- `5.0-php-7.2-fpm-alpine`
+- `4.7-php5.6-fpm-alpine`
+- `4.7-php7.0-fpm-alpine`
+- `4.7-php7.1-fpm-alpine`
+- `4.7-php7.2-fpm-alpine`
+- `4.8-php5.6-fpm-alpine`
+- `4.8-php7.0-fpm-alpine`
+- `4.8-php7.1-fpm-alpine`
+- `4.8-php7.2-fpm-alpine`
+- `4.9-php5.6-fpm-alpine`
+- `4.9-php7.0-fpm-alpine`
+- `4.9-php7.1-fpm-alpine`
+- `4.9-php7.2-fpm-alpine`
+- `5.0-php5.6-fpm-alpine`
+- `5.0-php7.0-fpm-alpine`
+- `5.0-php7.1-fpm-alpine`
+- `5.0-php7.2-fpm-alpine`
 
 ## Usage
 
