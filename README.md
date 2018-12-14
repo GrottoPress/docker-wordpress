@@ -29,7 +29,7 @@ WordPress requires a MySQL database to save data.
 
 Additionally, you may need to run this in tandem with a frontend (eg. `nginx`) that listens to this container on port `9000`.
 
-Minimal example using [docker-compose](https://docs.docker.com/compose/)
+**Minimal example using [docker-compose](https://docs.docker.com/compose/)**:
 
 ```yaml
 # docker-compose.yml
