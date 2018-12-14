@@ -57,7 +57,7 @@ services:
     restart: always
     volumes:
       - app:/var/www/html:ro
-      - ./wordpress.template:/etc/nginx/conf.d/wordpress.template:ro
+      - ./wordpress.conf:/etc/nginx/conf.d/wordpress.conf:ro
     networks:
       - front
   wordpress:
@@ -83,7 +83,7 @@ volumes:
   db: {}
 ```
 
-You should have a `wordpress.template` file in the same directory as the `docker-compose.yml`, with `fastcgi_pass wordpress:9000;` in its PHP location block(s).
+You should have a `wordpress.conf` file in the same directory as the `docker-compose.yml`, with `fastcgi_pass wordpress:9000;` in its PHP location block(s).
 
 Run `docker-compose up -d` to start the services.
 
