@@ -2,7 +2,7 @@
 
 Based on the official WordPress docker image. Adds several WordPress versions.
 
-### Tags
+## Tags
 
 - `4.7-php5.6-fpm-alpine`
 - `4.7-php7.0-fpm-alpine`
