@@ -19,7 +19,7 @@ WordPress requires a MySQL database to save data.
 
 Additionally, you may need to run this in tandem with a frontend (eg. `nginx`), if you use any of the PHP-FPM variants.
 
-**Minimal example using [docker-compose](https://docs.docker.com/compose/)**:
+Minimal example using [docker-compose](https://docs.docker.com/compose/):
 
 ```yaml
 ---
