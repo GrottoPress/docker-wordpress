@@ -1,59 +1,49 @@
-# WordPress Docker Images
+# WordPress Docker Image
 
-Based on the official WordPress docker image. Adds several WordPress versions.
+WordPress, batteries included. Adds the following PHP extensions:
+
+- imagick
+- imap
+- intl
+- redis
 
 ## Tags
 
-- `4.7-php5.6-fpm-alpine`
-- `4.7-php7.0-fpm-alpine`
-- `4.7-php7.1-fpm-alpine`
-- `4.7-php7.2-fpm-alpine`
-- `4.8-php5.6-fpm-alpine`
-- `4.8-php7.0-fpm-alpine`
-- `4.8-php7.1-fpm-alpine`
-- `4.8-php7.2-fpm-alpine`
-- `4.9-php5.6-fpm-alpine`
-- `4.9-php7.0-fpm-alpine`
-- `4.9-php7.1-fpm-alpine`
-- `4.9-php7.2-fpm-alpine`
-- `5.0-php5.6-fpm-alpine`
-- `5.0-php7.0-fpm-alpine`
-- `5.0-php7.1-fpm-alpine`
-- `5.0-php7.2-fpm-alpine`
+Supports all tags used by the [official WordPress docker image]((https://hub.docker.com/_/wordpress)).
 
 ## Usage
 
-Command: `docker run -v app:/var/www/html grottopress/wordpress`
+Example: `docker run -v app:/var/www/html grottopress/wordpress:fpm-alpine`
 
 WordPress requires a MySQL database to save data.
 
-Additionally, you may need to run this in tandem with a frontend (eg. `nginx`) that listens to this container on port `9000`.
+Additionally, you may need to run this in tandem with a frontend (eg. `nginx`), if you use any of the PHP-FPM variants.
 
 **Minimal example using [docker-compose](https://docs.docker.com/compose/)**:
 
 ```yaml
+---
 # docker-compose.yml
-
-version: "3"
+version: "3.7"
 services:
   mariadb:
-    image: mariadb:latest
+    image: mariadb:10.3
     restart: always
     volumes:
       - db:/var/lib/mysql
     environment:
-      MYSQL_ROOT_PASSWORD: root-password
-      MYSQL_DATABASE: wordpress
-      MYSQL_USER: wordpress
-      MYSQL_PASSWORD: wordpress-password
+      MYSQL_ROOT_PASSWORD: db-root-password
+      MYSQL_DATABASE: wordpress-db-name
+      MYSQL_USER: wordpress-db-user
+      MYSQL_PASSWORD: wordpress-db-user-password
     networks:
       - back
   nginx:
-    image: nginx:stable-alpine
+    image: nginx:1.14-alpine
     depends_on:
       - wordpress
     ports:
-      - "8080:80"
+      - "127.0.0.1:8080:80"
     restart: always
     volumes:
       - app:/var/www/html:ro
@@ -61,23 +51,23 @@ services:
     networks:
       - front
   wordpress:
-    image: grottopress/wordpress:5.0-php7.2-fpm-alpine
+    image: grottopress/wordpress:5.1-php7.3-fpm-alpine
     depends_on:
       - mariadb
     environment:
       WORDPRESS_DB_HOST: mariadb:3306
-      WORDPRESS_DB_NAME: wordpress
-      WORDPRESS_DB_USER: wordpress
-      WORDPRESS_DB_PASSWORD: wordpress-password
+      WORDPRESS_DB_NAME: wordpress-db-name
+      WORDPRESS_DB_USER: wordpress-db-user
+      WORDPRESS_DB_PASSWORD: wordpress-db-user-password
     restart: always
     volumes:
       - app:/var/www/html
     networks:
-      - front
       - back
+      - front
 networks:
-  front: {}
   back: {}
+  front: {}
 volumes:
   app: {}
   db: {}
@@ -95,7 +85,7 @@ If using WordPress with docker for development, check out our [WordPress Develop
 
 ## Alternatives
 
-If this does not satisfy your specific need, check out the following images:
+If this does not satisfy your specific needs, check out the following images:
 
-- [WordPress](https://hub.docker.com/_/wordpress/)
+- [wordpress](https://hub.docker.com/_/wordpress)
 - [bitnami/wordpress](https://hub.docker.com/r/bitnami/wordpress/)
