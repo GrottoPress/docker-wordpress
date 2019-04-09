@@ -9,7 +9,7 @@ WordPress, batteries included. Adds the following PHP extensions:
 
 ## Tags
 
-Supports all tags used by the [official WordPress docker image]((https://hub.docker.com/_/wordpress)).
+Supports all tags used by the [official WordPress docker image](https://hub.docker.com/_/wordpress).
 
 ## Usage
 
