@@ -1,11 +1,3 @@
 #!/usr/bin/env bash
 
-declare -a TAGS=(
-    "latest"
-    "5.1.1-apache"
-    "5.1.1-fpm"
-)
-
-for tag in ${TAGS[@]}; do
-    docker build --build-arg WORDPRESS_TAG="${tag}" -t "${DOCKER_REPO}:${tag}" .
-done
+docker build --build-arg WORDPRESS_TAG="${DOCKER_TAG}" -t "${IMAGE_NAME}" .
