@@ -7,13 +7,9 @@ WordPress, batteries included. Adds the following PHP extensions:
 - intl
 - redis
 
-## Tags
-
-Supports all tags used by the [official WordPress docker image](https://hub.docker.com/_/wordpress).
-
 ## Usage
 
-Example: `docker run -v app:/var/www/html grottopress/wordpress:fpm-alpine`
+Example: `docker run -v app:/var/www/html grottopress/wordpress:5.1-php7.3-fpm-alpine`
 
 WordPress requires a MySQL database to save data.
 
