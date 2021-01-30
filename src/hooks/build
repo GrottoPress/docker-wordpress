@@ -6,7 +6,7 @@ echo '[***] Build hook started'
 
 docker build \
     --build-arg WORDPRESS_TAG="${DOCKER_TAG}" \
-    -f $DOCKERFILE_PATH \
+    -f "${DOCKERFILE_PATH}" \
     -t "${IMAGE_NAME}" .
 
 echo '[***] Build hook ended'
