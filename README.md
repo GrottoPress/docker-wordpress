@@ -6,10 +6,11 @@ WordPress, batteries included. Adds the following PHP extensions:
 - imap
 - intl
 - redis
+- soap
 
 ## Usage
 
-Example: `docker run -v app:/var/www/html grottopress/wordpress:5.1-php7.3-fpm-alpine`
+Example: `docker run -v app:/var/www/html grottopress/wordpress:5.6-php8.0-fpm-alpine`
 
 WordPress requires a MySQL database to save data.
 
@@ -23,7 +24,7 @@ Minimal example using [docker-compose](https://docs.docker.com/compose/):
 version: "3.7"
 services:
   mariadb:
-    image: mariadb:10.3
+    image: mariadb:10.5
     restart: always
     volumes:
       - db:/var/lib/mysql
@@ -35,7 +36,7 @@ services:
     networks:
       - back
   nginx:
-    image: nginx:1.14-alpine
+    image: nginx:1.19-alpine
     depends_on:
       - wordpress
     ports:
@@ -47,7 +48,7 @@ services:
     networks:
       - front
   wordpress:
-    image: grottopress/wordpress:5.1-php7.3-fpm-alpine
+    image: grottopress/wordpress:5.6-php8.0-fpm-alpine
     depends_on:
       - mariadb
     environment:
